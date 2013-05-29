@@ -1,0 +1,87 @@
+package Client;
+
+import java.awt.Canvas;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.TextArea;
+import java.awt.TextField;
+import java.awt.image.ImageProducer;
+
+import javax.sound.midi.MidiDevice.Info;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+
+
+public class AvatarPanel extends JPanel
+{
+//	private int WIDTH = 200;
+//	private int HEIGHT = 270;
+
+	ImageIcon AvatarArea;
+	JLabel level;
+	JLabel exp;
+	JLabel coin;
+//	TextField level;
+//	TextField exp;
+	JLabel avatar;
+	int lv;
+	int ex;
+	int av;
+	int co;
+	MyInformation in = new MyInformation();
+	String lvv;
+
+	public AvatarPanel(MyInformation info)
+	{
+//		this.setSize(new Dimension(WIDTH,HEIGHT));
+		in = info;
+		lv = in.getLevel();
+	
+		this.setBorder(new TitledBorder(new EtchedBorder(),"아바타"));
+
+		this.setLayout(null);
+		AvatarArea= new ImageIcon("images/" + av + ".gif"); 			// 메시지를 보여주는 영역
+		avatar = new JLabel(AvatarArea);
+		level = new JLabel();
+		exp = new JLabel("EXP : " + ex);
+		coin = new JLabel("COIN : " + co);
+//		level =new TextField();
+//		exp= new TextField();
+
+		
+		
+		avatar.setBounds(45, 20, 170, 170);
+		level.setBounds(20, 195, 70, 20);
+		exp.setBounds(80, 195, 100, 20);
+		coin.setBounds(160, 195, 100, 20);
+		
+//		AvatarArea.setIcon(new ImageIcon("images/"+ av +".gif"));
+		
+		this.add(avatar);
+		this.add(level);
+		this.add(exp);
+		this.add(coin);
+	}
+	
+	public void setInfo(MyInformation info)
+	{
+		lv=info.getLevel();
+		ex=info.getExp();
+		av=info.getAvatar();
+		co=info.getCoin();
+		System.out.println("sdfw : " + lv + " " + ex + " " + av + " " + co);
+	}
+	
+
+	public void repaintinfo()
+	{
+		level.setName("Lv : " + lv);
+		repaint();
+	}
+}

@@ -1,2 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="Client.AvatarPanel"/>
+<fullyQualifiedTypeName name="javax.swing.JLabel"/>
+<fullyQualifiedTypeName name="Client.MyInformation"/>
+<fullyQualifiedTypeName name="Client.CatchmindFrame"/>
+<fullyQualifiedTypeName name="javax.swing.JRadioButton"/>
+<fullyQualifiedTypeName name="javax.swing.JLayer"/>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="javax.swing.JApplet"/>
+<fullyQualifiedTypeName name="javax.swing.JDialog"/>
+<fullyQualifiedTypeName name="javax.swing.JViewport"/>
+<fullyQualifiedTypeName name="javax.swing.JButton"/>
+<fullyQualifiedTypeName name="javax.swing.text.JTextComponent"/>
+<fullyQualifiedTypeName name="javax.swing.JTextPane"/>
+<fullyQualifiedTypeName name="javax.swing.JTextArea"/>
+<fullyQualifiedTypeName name="javax.swing.text.TextAction"/>
+<fullyQualifiedTypeName name="java.awt.font.TextAttribute"/>
+<fullyQualifiedTypeName name="javax.swing.plaf.metal.MetalBorders.TextFieldBorder"/>
+<fullyQualifiedTypeName name="java.awt.Image"/>
+<fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicBorders.FieldBorder"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="java.awt.Label"/>
+<fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
+</qualifiedTypeNameHistroy>

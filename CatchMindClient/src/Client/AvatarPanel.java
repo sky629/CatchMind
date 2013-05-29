@@ -4,72 +4,93 @@ import java.awt.Canvas;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Label;
 import java.awt.TextArea;
 import java.awt.TextField;
+import java.awt.font.TextAttribute;
 import java.awt.image.ImageProducer;
 
 import javax.sound.midi.MidiDevice.Info;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
-// ggggggggggggggggggggggggg
+import javax.swing.plaf.metal.MetalBorders.TextFieldBorder;
+
+
 public class AvatarPanel extends JPanel
 {
 //	private int WIDTH = 200;
 //	private int HEIGHT = 270;
 
-	JRadioButton b;
-//	JLabel level;
-//	JLabel exp;
-	TextField level;
-	TextField exp;
+	ImageIcon AvatarArea;
+	Label level;
+	Label exp;
+	Label coin;
+//	TextField level;
+//	TextField exp;
+	JLabel avatar;
 	int lv;
 	int ex;
+	int av;
+	int co;
+	String id;
+	MyInformation in = new MyInformation();
 	
-	public AvatarPanel(MyInformation info)
+	public AvatarPanel()
 	{
 //		this.setSize(new Dimension(WIDTH,HEIGHT));
+		
+		
 		this.setBorder(new TitledBorder(new EtchedBorder(),"아바타"));
 
 		this.setLayout(null);
-		b= new JRadioButton(); 			// 메시지를 보여주는 영역
-//		level = new JLabel();
-//		exp = new JLabel();
-		level =new TextField() ;
-		exp= new TextField();
-		lv = info.getLevel();
-		ex = info.getExp();
+		AvatarArea= new ImageIcon("images/" + av + ".gif"); 			// 메시지를 보여주는 영역
+		avatar = new JLabel(AvatarArea);
+		level = new Label();
+		exp = new Label();
+		coin = new Label();
+//		level =new TextField();
+//		exp= new TextField();
 
 		
 		
-		b.setBounds(40, 20, 170, 170);
-		level.setBounds(50, 195, 50, 20);
-		exp.setBounds(150, 195, 100, 20);
+		avatar.setBounds(45, 20, 170, 170);
+		level.setBounds(20, 195, 70, 20);
+		exp.setBounds(80, 195, 80, 20);
+		coin.setBounds(160, 195, 80, 20);
 		
-//		level.setText(""+lv);
-//		exp.setText(""+exp);
-		b.setIcon(new ImageIcon("images/Avatar1.gif"));
+//		AvatarArea.setIcon(new ImageIcon("images/"+ av +".gif"));
 		
-		this.add(b);
+		this.add(avatar);
 		this.add(level);
 		this.add(exp);
+		this.add(coin);
 	}
 	
-	public void setImfo(MyInformation info)
+	public void setInfo(MyInformation info)
 	{
+		id=info.getGameId();
 		lv=info.getLevel();
 		ex=info.getExp();
+		av=info.getAvatar();
+		co=info.getCoin();
+		System.out.println("sdfw :" + id + " " + lv + " " + ex + " " + av + " " + co);
 	}
 	
 
 	public void repaintinfo()
 	{
 		level.setText("Lv : " + lv);
-		exp.setText("Exp : " + ex);
+		exp.setText("EXP : " + ex);
+		coin.setText("COIN : " + co);
+		avatar.setIcon(new ImageIcon("images/" + av + ".gif"));
 		repaint();
 	}
 }

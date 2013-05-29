@@ -15,8 +15,8 @@ public class MyInformation {
 		numId="";
 		level=1;
 		exp=0;
-		setCoin(0);
-		setAvatar(0);
+		coin=0;
+		avatar=0;;
 		introduce="";
 
 	}

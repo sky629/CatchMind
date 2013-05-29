@@ -18,6 +18,8 @@ import javax.swing.JRadioButton;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
+import Client.MyInformation;
+
  public class GameUser1 extends JPanel {
 	 
 	 private int WIDTH=200;
@@ -28,7 +30,10 @@ import javax.swing.border.TitledBorder;
 	 JLabel Level;
 	 JLabel Status;
 	 JRadioButton Avatar;
-
+	 MyInformation info;
+	 String name;
+	 
+	 
 	 public GameUser1()
 	 {
 		 this.setSize(new Dimension (WIDTH, HIGHT));

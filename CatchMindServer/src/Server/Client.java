@@ -44,7 +44,6 @@ class Client extends Thread
 	static String coin;
 	static String avatar;
 	
-	
 	public Client(Server svr, Socket s) throws IOException
 	{
 		this.svr = svr;
@@ -66,7 +65,7 @@ class Client extends Thread
 		
 		
 		try {
-			dos.writeUTF("[ShowID]"+ id);	//접속한 client에게 ID를 전송
+//			dos.writeUTF("[ShowID]"+ id);	//접속한 client에게 ID를 전송
 			
 			
 			dos.writeUTF("[Information] "+ id + " 님 접속을 환영합니다.");	//접속한 client에게 ID와 접송 정보를 보냄
@@ -228,7 +227,6 @@ class Client extends Thread
 							id = temp_id;
 							pass = temp_pass;
 							msg="[Login]" + id;
-							System.out.println("id"+id);
 							sendToMe(msg);
 							dos.writeUTF("[Roomlist]"+ svr.roomcontroller.totalRoom());	//roomlist에 모든 Room객체 의 정보를 받아서 접속한 client에 보냄
 							svr.clientcontroller.updateIDlist();
@@ -249,7 +247,7 @@ class Client extends Thread
 							coin=saveimfo[2];
 							sendToMe("[ShowCoin]"+coin);
 							avatar=saveimfo[3];
-//							sendToMe("[ShowAvatar]"+avatar);
+							sendToMe("[ShowAvatar]"+avatar);
 							
 							System.out.println(level+exp+coin+avatar);
 							

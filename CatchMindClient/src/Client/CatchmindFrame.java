@@ -97,7 +97,7 @@ public class CatchmindFrame extends JFrame implements Runnable, ActionListener
 		chatpanel = new ChatPanel();
 		informationpanel = new InformationPanel();	
 		gamepanel = new GamePanel();
-		avatarpanel = new AvatarPanel(myInformation); 
+		avatarpanel = new AvatarPanel(); 
 	    gameRankState = new JLabel();
 		
 		exit = new JButton("종료");	
@@ -147,7 +147,7 @@ public class CatchmindFrame extends JFrame implements Runnable, ActionListener
 	public void WaitRoom(){
 		
 
-
+		
 		this.setLayout(null);
 		chatpanel.chatarea.setText("");			// 채팅한 내용을 초기화
 		exit.setBounds(800,620,95,30);
@@ -310,8 +310,7 @@ public class CatchmindFrame extends JFrame implements Runnable, ActionListener
 				}
 				else if(line.startsWith("[ShowID]"))
 				{
-//					myInformation.setNumId(line.substring(8));
-//					myInformation.setGameId(line.substring(8));
+					
 				}
 				else if(line.startsWith("[Login]"))
 				{
@@ -322,13 +321,19 @@ public class CatchmindFrame extends JFrame implements Runnable, ActionListener
 					
 					repaint();
 					
+					String tem=line.substring(7);
+					String[] ax=tem.split(" ");
+					myInformation.setGameId(ax[0]);
+					avatarpanel.setInfo(myInformation);
+					avatarpanel.repaintinfo();
+					
 				}
 				else if(line.startsWith("[ShowLv]"))
 				{
 					String tem=line.substring(8);
 					String[] ax=tem.split(" ");
 					myInformation.setLevel(Integer.parseInt(ax[0]));
-					avatarpanel.setImfo(myInformation);
+					avatarpanel.setInfo(myInformation);
 					avatarpanel.repaintinfo();
 				}
 				else if(line.startsWith("[ShowExp]"))
@@ -336,7 +341,7 @@ public class CatchmindFrame extends JFrame implements Runnable, ActionListener
 					String tem=line.substring(9);
 					String[] ax=tem.split(" ");
 					myInformation.setExp(Integer.parseInt(ax[0]));
-					avatarpanel.setImfo(myInformation);
+					avatarpanel.setInfo(myInformation);
 					avatarpanel.repaintinfo();
 				}
 				else if(line.startsWith("[ShowCoin]"))
@@ -344,16 +349,16 @@ public class CatchmindFrame extends JFrame implements Runnable, ActionListener
 					String tem=line.substring(10);
 					String[] a=tem.split(" ");
 					myInformation.setCoin(Integer.parseInt(a[0]));
-//					avatarpanel.setImfo(myInformation);
-//					avatarpanel.repaintinfo();
+					avatarpanel.setInfo(myInformation);
+					avatarpanel.repaintinfo();
 				}
 				else if(line.startsWith("[ShowAvatar]"))
 				{
 					String tem=line.substring(12);
 					String[] a=tem.split(" ");
 					myInformation.setAvatar(Integer.parseInt(a[0]));
-//					avatarpanel.setImfo(myInformation);
-//					avatarpanel.repaintinfo();
+					avatarpanel.setInfo(myInformation);
+					avatarpanel.repaintinfo();
 				}
 				else if(line.startsWith("[LoginFail]")){
 					String line2 = line.substring(11);
@@ -651,6 +656,7 @@ public class CatchmindFrame extends JFrame implements Runnable, ActionListener
 			System.out.println("서버와 연결이 끊어졌습니다.");
 		}
 	}
+	
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		// TODO Auto-generated method stub

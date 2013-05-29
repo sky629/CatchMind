@@ -67,7 +67,7 @@ public class Login {
         }
 	    try {
 	    	stmt = (PreparedStatement) conn.prepareStatement(
-	    			"SELECT user_id, level,exp,coin,avatar FROM info WHERE user_id = ? ");
+	    			"SELECT user_id,level,exp,coin,avatar FROM info WHERE user_id = ? ");
 	    	stmt.setString(1, id);
 	    	
 	    	rs = stmt.executeQuery();
@@ -87,7 +87,7 @@ public class Login {
 	       	if(stmt != null) try {stmt.close();}catch(SQLException e){}
 	       	if(conn != null) try {conn.close();}catch(SQLException e){}
 	    }
-	    if((ID.equals(id) ))	return LEVEL +"\t"+EXP+"\t"+COIN+"\t"+ITEM;
+	    if((ID.equals(id) ))	return LEVEL +"\t"+EXP+"\t"+COIN+"\t"+AVATAR;
     	else										return "false";
     	
     }
