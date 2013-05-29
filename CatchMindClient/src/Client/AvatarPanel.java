@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
-
+// ggggggggggggggggggggggggg
 public class AvatarPanel extends JPanel
 {
 //	private int WIDTH = 200;
